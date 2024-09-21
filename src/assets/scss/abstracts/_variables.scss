@@ -1,0 +1,75 @@
+// Theme variables colors
+$primary: $blue-500; /*normal*/
+$primary-one: $blue-200; /*light*/
+$primary-two: $blue-600; /*dark*/
+
+$secondary: $grey-700; /*normal*/
+$secondary-one: $grey-300; /*light*/
+$secondary-two: $grey-900; /*dark*/
+$secondary-three: $grey-500; /*normal*/
+
+$success: $green-200; /*normal*/
+$success-one: $green-50; /*light*/
+$success-two: $green-600; /*dark*/
+
+$warning: $yellow-200; /*normal*/
+$warning-one: $yellow-50; /*light*/
+$warning-two: $yellow-600; /*dark*/
+
+$danger: $red-200; /*normal*/
+$danger-one: $red-50; /*light*/
+$danger-two: $red-600; /*dark*/
+
+// Theme font colors
+$text-primary: #333333;
+$text-secondary: #666666;
+$text-light: #ffffff;
+$light-blue: #e2f1f2;
+$text-dark: $grey-700;
+$text-darker: $grey-900;
+$text-grey: $grey-500;
+$text-purple: $purple-600;
+$text-blue: $blue-500;
+$text-red: $red-500;
+$text-green: $green-500;
+
+// Theme background colors
+$bg-primary: #f5f5f5;
+$bg-secondary: #ffffff;
+$bg-green: $green-100;
+$bg-red: $red-100;
+$bg-yellow: $yellow-100;
+$bg-grey: $grey-100;
+$bg-purple: $purple-100;
+$bg-blue: $blue-100;
+
+// Theme font size
+$text-xsmall: 0.65rem; /* 12px */
+$text-sm: 0.875rem; /* 14px */
+$text-md: 1rem; /* 16px */
+$text-lg: 1.125rem; /* 18px */
+$text-xl: 1.25rem; /* 20px */
+$text-2xl: 1.5rem; /* 24px */
+$text-3xl: 1.75rem; /* 28px */
+$text-4xl: 2rem; /* 32px */
+$text-5xl: 2.813rem; /* 45px */
+$text-6xl: 3.75rem; /* 60px */
+$text-50px: 3.125rem; /* 50px */
+
+//Theme font weight
+$font-light: 300;
+$font-normal: 400;
+$font-meduim: 500;
+$font-bold: 600;
+$font-dark: 700;
+
+//Theme media queries
+$xsmall: 250px;
+$small: 640px;
+$meduim: 768px;
+$lg: 1024px;
+$xl: 1280px;
+
+//boxshadow
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-dark: 0 4px 8px rgba(0, 0, 0, 0.3);
