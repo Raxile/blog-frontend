@@ -10,6 +10,7 @@ export const LOADING_KEYS = {
 
 export const setLoading = createAction('user/setLoading');
 export const setUsers = createAction('user/setUsers');
+export const setLogoutBtnShow = createAction('user/setLogoutBtnShow');
 
 export const getUsersAction = () => {
   return async (dispatch) => {

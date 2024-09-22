@@ -5,7 +5,7 @@ export const getToken = () => {
 };
 
 export const setToken = (token) => {
-  localStorage.getItem(JSON.stringify(token));
+  localStorage.setItem(ACCESS_TOKEN, JSON.stringify(token));
 };
 
 export const clearStorage = () => {

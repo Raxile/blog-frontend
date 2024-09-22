@@ -1,2 +1,12 @@
 @import 'header';
 @import 'card';
+
+.modal-container {
+  //   background-color: rgba(0, 0, 0, 0.1);
+  .modal {
+    background-color: $light;
+    z-index: 5;
+    width: 300px;
+    height: 300px;
+  }
+}
