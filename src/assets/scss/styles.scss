@@ -5,3 +5,10 @@
 @import 'base';
 @import 'components';
 @import 'layout';
+
+.input-group {
+  .input-error {
+    bottom: -20px;
+    left: 4px;
+  }
+}

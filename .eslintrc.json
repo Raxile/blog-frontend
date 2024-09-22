@@ -36,6 +36,7 @@
     // ES6
     "array-callback-return": "off",
     "prefer-const": "error",
+    "react/prop-types": "off",
     // Imports
     "import/prefer-default-export": "off",
     "no-unused-expressions": "off",

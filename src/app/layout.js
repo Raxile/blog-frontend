@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import '@/assets/scss/styles.scss';
+import Header from '@/components/Header';
+import Providers from '@/redux/providers';
 
 export const metadata = {
   title: 'Create Next App',
@@ -9,7 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
