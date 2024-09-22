@@ -29,6 +29,7 @@ export const userLoginAction = (data, cb) => {
     cb?.(res);
     if (res?.success) {
       setToken(res?.data?.token);
+      dispatch(setLogoutBtnShow(true));
       toast.success(res?.message);
     } else toast.error(res?.message);
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: false }));

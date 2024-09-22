@@ -24,14 +24,20 @@ const User = () => {
           </tr>
         </thead>
         <tbody>
-          {users?.map((user, index) => (
-            <tr className="" key={user.id}>
-              <td>{index + 1}</td>
-              <td>{user?.name}</td>
-              <td>{user?.email}</td>
-              <td>{user?.age}</td>
+          {users.length ? (
+            users?.map((user, index) => (
+              <tr className="" key={user.id}>
+                <td>{index + 1}</td>
+                <td>{user?.name}</td>
+                <td>{user?.email}</td>
+                <td>{user?.age}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={4}> No user found</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
