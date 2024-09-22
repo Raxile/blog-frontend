@@ -1,3 +1,4 @@
+import { getToken } from '@/utils/helper/storage.helper';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
@@ -8,6 +9,8 @@ const axiosInstance = axios.create({
 // TODO: add condition for bearer token
 axiosInstance.interceptors.request.use(
   (config) => {
+    const token = getToken();
+    if (token) config.headers.Authorization = token;
     return config;
   },
   (error) => {

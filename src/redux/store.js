@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { shippingReducer } from './shipping/reducer.shipping';
-import { playsTransferReducer } from './playsTransfer/reducer.playsTransfer';
+import { blogReducer } from './blog/reducer.blog';
+import { userReducer } from './user/reducer.user';
 
 export const store = configureStore({
   reducer: {
-    shipping: shippingReducer,
-    playsTransfer: playsTransferReducer,
+    blog: blogReducer,
+    user: userReducer,
   },
 });

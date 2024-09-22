@@ -1,66 +1,47 @@
-import storage from '@/helpers/storage';
 import { createAction } from '@reduxjs/toolkit';
-import {
-  getAuctionHouseInfoHttp,
-  getAvatarListHttp,
-  userLoginHttp,
-  userLogoutHttp,
-} from './http.user';
+import { getUsersHttp, usersLoginHttp, usersRegisterHttp } from './http.user';
 import toast from 'react-hot-toast';
+import { setToken } from '@/utils/helper/storage.helper';
 
 export const LOADING_KEYS = {
   LOGIN_LOADER: 'loginLoader',
-  AVATAR_LIST_LOADER: 'avatarListLoader',
+  USERS_LIST: 'userList',
 };
 
 export const setLoading = createAction('user/setLoading');
-export const setAuctionInfo = createAction('user/setAuctionInfo');
-export const setUserInfo = createAction('user/setUserInfo');
-export const setAvatarList = createAction('user/setAvatarList');
+export const setUsers = createAction('user/setUsers');
 
-// params -> subdomain:hostname
-export const getAuctionHouseInfoAction = (params) => {
+export const getUsersAction = () => {
   return async (dispatch) => {
-    const res = await getAuctionHouseInfoHttp(params);
-    if (res?.success) dispatch(setAuctionInfo(res?.data));
+    dispatch(setLoading({ key: LOADING_KEYS.USERS_LIST, value: true }));
+    const res = await getUsersHttp();
+    if (res?.success) dispatch(setUsers(res.data));
     else toast.error(res?.message);
+    dispatch(setLoading({ key: LOADING_KEYS.USERS_LIST, value: false }));
   };
 };
 
-export const userLoginAction = (data, cb) => {
+export const getLoginAction = (data, cb) => {
   return async (dispatch) => {
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: true }));
-    const res = await userLoginHttp(data);
+    const res = await usersLoginHttp(data);
+    cb?.(res);
     if (res?.success) {
-      cb?.(res);
-      dispatch(setUserInfo(res?.data));
+      setToken(res?.data?.token);
       toast.success(res?.message);
-    } else toast.error(res?.message);
-
-    dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: false }));
-  };
-};
-
-export const userLogoutAction = (cb) => {
-  return async (dispatch) => {
-    dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: true }));
-
-    const res = await userLogoutHttp();
-    if (res?.success) {
-      toast.success(res?.message);
-      dispatch(setUserInfo(null));
-      storage.clear();
     } else toast.error(res?.message);
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: false }));
   };
 };
 
-export const getAvatarListAction = () => {
+export const getRegisterAction = (data, cb) => {
   return async (dispatch) => {
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: true }));
-    const res = await getAvatarListHttp();
-    if (res?.success) dispatch(setAvatarList(res?.data));
-    else toast.error(res?.message);
+    const res = await usersRegisterHttp(data);
+    cb?.(res);
+    if (res?.success) {
+      toast.success(res?.message);
+    } else toast.error(res?.message);
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: false }));
   };
 };
