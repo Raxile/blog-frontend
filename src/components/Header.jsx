@@ -24,7 +24,6 @@ const Header = () => {
           <div className="d-flex  gap-4">
             <Link href="/">Home</Link>
             <Link href="/users">Users</Link>
-            <Link href="/my-blogs">My Blogs</Link>
             <Link href="/login">Login</Link>
           </div>
         </div>

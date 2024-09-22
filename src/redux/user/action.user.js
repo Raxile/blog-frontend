@@ -21,7 +21,7 @@ export const getUsersAction = () => {
   };
 };
 
-export const getLoginAction = (data, cb) => {
+export const userLoginAction = (data, cb) => {
   return async (dispatch) => {
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: true }));
     const res = await usersLoginHttp(data);
@@ -34,7 +34,7 @@ export const getLoginAction = (data, cb) => {
   };
 };
 
-export const getRegisterAction = (data, cb) => {
+export const userRegisterAction = (data, cb) => {
   return async (dispatch) => {
     dispatch(setLoading({ key: LOADING_KEYS.LOGIN_LOADER, value: true }));
     const res = await usersRegisterHttp(data);
