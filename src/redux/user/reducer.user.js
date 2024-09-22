@@ -1,18 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import {
-  LOADING_KEYS,
-  setAuctionInfo,
-  setAvatarList,
-  setLoading,
-  setUserInfo,
-} from './action.user';
+import { LOADING_KEYS, setLoading, setUsers } from './action.user';
 
 const initialState = {
   [LOADING_KEYS.LOGIN_LOADER]: false,
-  [LOADING_KEYS.AVATAR_LIST_LOADER]: false,
-  auctionInfo: null,
-  userInfo: null,
-  avatarList: [],
+  [LOADING_KEYS.USERS_LIST]: false,
+  users: [],
 };
 
 export const userReducer = createReducer(initialState, (builder) => {
@@ -21,13 +13,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       const { key, value } = payload;
       state[key] = value;
     })
-    .addCase(setAuctionInfo, (state, { payload }) => {
-      state.auctionInfo = payload;
-    })
-    .addCase(setUserInfo, (state, { payload }) => {
-      state.userInfo = payload;
-    })
-    .addCase(setAvatarList, (state, { payload }) => {
-      state.avatarList = payload;
+    .addCase(setUsers, (state, { payload }) => {
+      state.users = payload;
     });
 });
