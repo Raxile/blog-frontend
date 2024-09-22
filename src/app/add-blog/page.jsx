@@ -10,14 +10,9 @@ import { useRouter } from 'next/navigation';
 import { addBlogAction } from '@/redux/blog/action.blog';
 
 const blogSchema = Yup.object().shape({
-  title: Yup.string()
-    .min(5, 'Title must be at least 5 characters long')
-    .max(100, 'Title must be less than 100 characters')
-    .required('Title is required'),
+  title: Yup.string().min(5, 'MIN 5').max(100, 'MAX 100').required('Required'),
 
-  body: Yup.string()
-    .min(20, 'Body must be at least 20 characters long')
-    .required('Body is required'),
+  body: Yup.string().min(20, 'MIN 20').required('Required'),
 });
 
 const initialValue = {

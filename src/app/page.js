@@ -36,9 +36,13 @@ const Home = () => {
         </button>
       </div>
       <div className="mt-5 d-flex gap-3 align-items-center justify-content-center flex-wrap ">
-        {blogs.map((blog) => (
-          <Card key={blog.id} title={blog.title} body={blog.body} />
-        ))}
+        {blogs.length ? (
+          blogs.map((blog) => (
+            <Card key={blog.id} title={blog.title} body={blog.body} />
+          ))
+        ) : (
+          <Card title="No blogs found" />
+        )}
       </div>
     </div>
   );

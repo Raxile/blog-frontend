@@ -22,7 +22,6 @@ export const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(setUsers, (state, { payload }) => {
       state.users = payload;
-      state.logoutBtnShow = true;
     })
     .addCase(setLogoutBtnShow, (state, { payload }) => {
       state.logoutBtnShow = payload;
